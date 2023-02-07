@@ -1,8 +1,12 @@
 import { CollectionConfig } from 'payload/types'
 import slugify from 'slugify'
+import { RichText } from '../components/RichText'
 
 const Blog: CollectionConfig = {
   slug: 'blog',
+  access: {
+    read: () => true,
+  },
   labels: { singular: 'Blog', plural: 'Blogs' },
   admin: {
     useAsTitle: 'title',
@@ -20,10 +24,10 @@ const Blog: CollectionConfig = {
       name: 'slug',
       type: 'text',
       admin: {
-        readOnly: true,
+        hidden: true,
       },
       hooks: {
-        beforeValidate: [(args) => slugify(args.originalDoc.title, { lower: true, remove: /[*+~.()'"!:@]/g })],
+        beforeValidate: [(args) => slugify(args.siblingData.title, { lower: true, remove: /[*+~.()'"!:@]/g })],
       },
     },
     {
@@ -40,27 +44,70 @@ const Blog: CollectionConfig = {
       required: true,
     },
     {
-      name: 'text',
-      type: 'richText',
-      label: 'Text',
-      required: true,
-      defaultValue: [
+      name: 'contentBlocks',
+      type: 'blocks',
+      label: 'Content Blocks',
+      blocks: [
         {
-          children: [{ text: 'Insert blog entry here...' }],
+          slug: 'richText',
+          fields: [
+            RichText,
+          ]
         },
-      ],
-      admin: {
-        elements: ['h1', 'h2', 'h3', 'h4', 'h5', 'link', 'ol', 'ul', 'indent', 'upload'],
-        leaves: ['bold', 'italic', 'underline', 'strikethrough', 'code'],
-        upload: {
-          collections: {
-            media: {
-              fields: [],
+        {
+          slug: 'code javascript',
+          fields: [
+            {
+              name: 'code',
+              type: 'code',
+              label: 'Javascript',
+              admin: {
+                language: 'javascript'
+              }
             },
-          },
+          ]
         },
-      },
-    },
+        {
+          slug: 'code typescript',
+          fields: [
+            {
+              name: 'code',
+              type: 'code',
+              label: 'Typescript',
+              admin: {
+                language: 'typescript'
+              }
+            },
+          ]
+        },
+        {
+          slug: 'code html',
+          fields: [
+            {
+              name: 'code',
+              type: 'code',
+              label: 'HTML',
+              admin: {
+                language: 'html'
+              }
+            },
+          ]
+        },
+        {
+          slug: 'code css',
+          fields: [
+            {
+              name: 'code',
+              type: 'code',
+              label: 'CSS',
+              admin: {
+                language: 'css'
+              }
+            },
+          ]
+        },
+      ]
+    }
   ],
 }
 

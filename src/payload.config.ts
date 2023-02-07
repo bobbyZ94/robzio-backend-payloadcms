@@ -14,6 +14,22 @@ export default buildConfig({
   serverURL: 'http://localhost:3000',
   admin: {
     user: Users.slug,
+    meta: {
+      // browsertab name suffix
+      titleSuffix: ' - Robzio',
+      // favicon for browsertab
+      // favicon: '/assets/favicon.svg',
+      // image that appears in previews of shared links through admin panel/social media
+      // ogImage: '/assets/logo.svg',
+    },
+    components: {
+      graphics: {
+        // image component to be displayed as the logo on the Sign Up / Login view.
+        // Logo,
+        // image component displayed above the Nav in the admin panel, often a condensed version of a full logo.
+        // Icon,
+      },
+    },
   },
   collections: [
     Users,
@@ -33,10 +49,11 @@ export default buildConfig({
   graphQL: {
     schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
   },
+  // disable sending data to payloadcms devs
   telemetry: false,
   upload: {
     limits: {
-      fileSize: 10000000, // 5MB, written in bytes
+      fileSize: 10000000, // 10MB, written in bytes
     },
   },
 });

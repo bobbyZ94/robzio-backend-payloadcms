@@ -1,7 +1,11 @@
 import { CollectionConfig } from 'payload/types'
+import { RichText } from '../components/RichText'
 
 const Projects: CollectionConfig = {
   slug: 'projects',
+  access: {
+    read: () => true,
+  },
   labels: { singular: 'Project', plural: 'Projects' },
   admin: {
     useAsTitle: 'title',
@@ -34,26 +38,18 @@ const Projects: CollectionConfig = {
     },
     {
       name: 'text',
-      type: 'richText',
-      label: 'Text',
+      type: 'textarea',
+      label: 'Project description (max. 200 chars length)',
       required: true,
-      defaultValue: [
-        {
-          children: [{ text: 'Insert project entry here...' }],
-        },
-      ],
-      admin: {
-        elements: ['h1', 'h2', 'h3', 'h4', 'h5', 'link', 'ol', 'ul', 'indent', 'upload'],
-        leaves: ['bold', 'italic', 'underline', 'strikethrough', 'code'],
-        upload: {
-          collections: {
-            media: {
-              fields: [],
-            },
-          },
-        },
-      },
+      maxLength: 200,
     },
+    {
+      name: 'keywords',
+      type: 'text',
+      label: 'Project keywords list. Seperate keywords with comma! (max. 100 chars length)',
+      required: true,
+      maxLength: 100,
+    }
   ],
 }
 

@@ -3,6 +3,9 @@ import { DescriptionSettingsContactInformation, DescriptionSettingsMetadata } fr
 
 const Settings: GlobalConfig = {
   slug: "settings",
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       type: 'ui',

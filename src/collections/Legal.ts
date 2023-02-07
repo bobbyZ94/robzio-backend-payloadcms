@@ -1,7 +1,11 @@
 import { GlobalConfig } from 'payload/types'
+import { RichText } from '../components/RichText'
 
 const Legal: GlobalConfig = {
   slug: 'legal',
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'title',
@@ -9,28 +13,7 @@ const Legal: GlobalConfig = {
       type: 'text',
       required: true,
     },
-    {
-      name: 'text',
-      type: 'richText',
-      label: 'Text',
-      required: true,
-      defaultValue: [
-        {
-          children: [{ text: 'Inser legal text here...' }],
-        },
-      ],
-      admin: {
-        elements: ['h1', 'h2', 'h3', 'h4', 'h5', 'link', 'ol', 'ul', 'indent', 'upload'],
-        leaves: ['bold', 'italic', 'underline', 'strikethrough'],
-        upload: {
-          collections: {
-            media: {
-              fields: [],
-            },
-          },
-        },
-      },
-    },
+    RichText,
   ],
 }
 
