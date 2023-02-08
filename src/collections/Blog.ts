@@ -1,6 +1,5 @@
 import { CollectionConfig } from 'payload/types'
 import slugify from 'slugify'
-import { RichText } from '../components/RichText'
 
 const Blog: CollectionConfig = {
   slug: 'blog',
@@ -51,12 +50,37 @@ const Blog: CollectionConfig = {
         {
           slug: 'richText',
           fields: [
-            RichText,
+            {
+              name: 'text',
+              type: 'richText',
+              label: 'Text',
+              defaultValue: [
+                {
+                  children: [{ text: 'Inser legal text here...' }],
+                },
+              ],
+              admin: {
+                elements: ['h1', 'h2', 'h3', 'h4', 'h5', 'link', 'ol', 'ul', 'indent', 'upload'],
+                leaves: ['bold', 'italic', 'underline', 'strikethrough', 'code'],
+                upload: {
+                  collections: {
+                    media: {
+                      fields: [],
+                    },
+                  },
+                },
+              },
+            }
           ]
         },
         {
           slug: 'code javascript',
           fields: [
+            {
+              name: 'filename',
+              type: 'text',
+              label: 'Filename. E.g. : /+page.svelte'
+            },
             {
               name: 'code',
               type: 'code',
@@ -71,6 +95,11 @@ const Blog: CollectionConfig = {
           slug: 'code typescript',
           fields: [
             {
+              name: 'filename',
+              type: 'text',
+              label: 'Filename. E.g. : /+page.svelte'
+            },
+            {
               name: 'code',
               type: 'code',
               label: 'Typescript',
@@ -84,6 +113,11 @@ const Blog: CollectionConfig = {
           slug: 'code html',
           fields: [
             {
+              name: 'filename',
+              type: 'text',
+              label: 'Filename. E.g. : /+page.svelte'
+            },
+            {
               name: 'code',
               type: 'code',
               label: 'HTML',
@@ -96,6 +130,11 @@ const Blog: CollectionConfig = {
         {
           slug: 'code css',
           fields: [
+            {
+              name: 'filename',
+              type: 'text',
+              label: 'Filename. E.g. : /+page.svelte'
+            },
             {
               name: 'code',
               type: 'code',

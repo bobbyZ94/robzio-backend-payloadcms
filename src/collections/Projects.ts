@@ -1,5 +1,4 @@
 import { CollectionConfig } from 'payload/types'
-import { RichText } from '../components/RichText'
 
 const Projects: CollectionConfig = {
   slug: 'projects',

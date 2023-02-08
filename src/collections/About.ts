@@ -1,5 +1,4 @@
 import { GlobalConfig } from 'payload/types'
-import { RichText } from '../components/RichText'
 
 const About: GlobalConfig = {
   slug: 'about',
@@ -7,7 +6,28 @@ const About: GlobalConfig = {
     read: () => true,
   },
   fields: [
-    RichText,
+    {
+      name: 'text',
+      type: 'richText',
+      label: 'Text',
+      required: true,
+      defaultValue: [
+        {
+          children: [{ text: 'Inser legal text here...' }],
+        },
+      ],
+      admin: {
+        elements: ['h1', 'h2', 'h3', 'link', 'ol', 'ul', 'indent', 'upload'],
+        leaves: ['bold', 'italic', 'underline', 'strikethrough', 'code'],
+        upload: {
+          collections: {
+            media: {
+              fields: [],
+            },
+          },
+        },
+      },
+    }
   ],
 }
 
