@@ -62,9 +62,9 @@ export default buildConfig({
     trustProxy: true,
   },
   csrf: [
-    'https://robzio.com', 'http://localhost:5173/',
+    'https://robzio.com', 'https://www.robzio.com', 'http://localhost:5173/',
   ],
   cors: [
-    'https://robzio.com', 'http://localhost:5173/',
+    'https://robzio.com', 'https://www.robzio.com', 'http://localhost:5173/',
   ]
 });
