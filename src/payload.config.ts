@@ -65,6 +65,7 @@ export default buildConfig({
     'https://robzio.com', 'https://www.robzio.com', 'http://localhost:5173/',
   ],
   cors: [
-    'https://robzio.com', 'https://www.robzio.com', 'http://localhost:5173/',
+    'https://robzio.com', 'https://www.robzio.com', 'http://localhost:5173/', 'https://localhost:3000',
+    'https://127.0.0.1', 'http://robzio.com', 'http://www.robzio.com', 'http://localhost:5173/', 'http://localhost:3000', 'http://127.0.0.1'
   ]
 });
