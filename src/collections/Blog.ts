@@ -60,7 +60,7 @@ const Blog: CollectionConfig = {
                 },
               ],
               admin: {
-                elements: ['h1', 'h2', 'h3', 'h4', 'h5', 'link', 'ol', 'ul', 'indent', 'upload'],
+                elements: ['h1', 'h2', 'h3', 'link', 'ol', 'ul', 'indent', 'upload'],
                 leaves: ['bold', 'italic', 'underline', 'strikethrough', 'code'],
                 upload: {
                   collections: {
