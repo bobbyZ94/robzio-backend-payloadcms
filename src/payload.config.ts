@@ -11,7 +11,7 @@ import Projects from './collections/Projects';
 import Media from './collections/Media';
 
 export default buildConfig({
-  serverURL: process.env.ENVIRONMENT === 'production' ? 'https://robzio.com' : 'http://localhost:3000',
+  serverURL: 'http://localhost:3000',
   admin: {
     user: Users.slug,
     meta: {
@@ -62,9 +62,9 @@ export default buildConfig({
     trustProxy: true,
   },
   csrf: [
-    process.env.ENVIRONMENT === 'production' ? 'https://robzio.com' : 'http://localhost:5173/',
+    'https://robzio.com', 'http://localhost:5173/',
   ],
   cors: [
-    process.env.ENVIRONMENT === 'production' ? 'https://robzio.com' : 'http://localhost:5173/',
+    'https://robzio.com', 'http://localhost:5173/',
   ]
 });
