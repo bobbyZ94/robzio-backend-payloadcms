@@ -17,8 +17,8 @@ const start = async () => {
     secret: process.env.PAYLOAD_SECRET,
     mongoURL: process.env.MONGODB_URI,
     mongoOptions: {
-      user: 'payloadcms',
-      pass: '9889Dakkord2'
+      user: process.env.ENVIRONMENT === 'production' ? process.env.MONGODB_USER : '',
+      pass: process.env.ENVIRONMENT === 'production' ? process.env.MONGODB_PW : ''
     },
     express: app,
     onInit: () => {
