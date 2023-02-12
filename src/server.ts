@@ -15,7 +15,7 @@ app.get('/', (_, res) => {
 const start = async () => {
   payload.init({
     secret: process.env.PAYLOAD_SECRET,
-    mongoURL: process.env.MONGODB_URI,
+    mongoURL: process.env.ENVIRONMENT === 'production' ? process.env.MONGODB_URI_PRODUCTION : process.env.MONGODB_URI_LOCAL,
     mongoOptions: {
       user: process.env.ENVIRONMENT === 'production' ? process.env.MONGODB_USER : '',
       pass: process.env.ENVIRONMENT === 'production' ? process.env.MONGODB_PW : ''

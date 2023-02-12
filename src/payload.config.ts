@@ -11,7 +11,7 @@ import Projects from './collections/Projects';
 import Media from './collections/Media';
 
 export default buildConfig({
-  serverURL: process.env.ENVIRONMENT === 'production' ? '' : 'http://localhost:3000',
+  ...(process.env.ENVIRONMENT !== 'production' && { serverURL: 'http://localhost:3000' }),
   admin: {
     user: Users.slug,
     meta: {

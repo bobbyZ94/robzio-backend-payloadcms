@@ -5,6 +5,11 @@ const Projects: CollectionConfig = {
   access: {
     read: () => true,
   },
+  versions: {
+    drafts: {
+      autosave: true,
+    }
+  },
   labels: { singular: 'Project', plural: 'Projects' },
   admin: {
     useAsTitle: 'title',
