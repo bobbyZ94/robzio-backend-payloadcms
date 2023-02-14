@@ -6,11 +6,11 @@ const Blog: CollectionConfig = {
   access: {
     read: () => true,
   },
-  versions: {
-    drafts: {
-      autosave: true,
-    }
-  },
+  // versions: {
+  //   drafts: {
+  //     autosave: true,
+  //   }
+  // },
   labels: { singular: 'Blog', plural: 'Blogs' },
   admin: {
     useAsTitle: 'title',

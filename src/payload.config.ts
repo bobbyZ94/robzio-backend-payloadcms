@@ -11,7 +11,8 @@ import Projects from './collections/Projects';
 import Media from './collections/Media';
 
 export default buildConfig({
-  ...(process.env.ENVIRONMENT !== 'production' && { serverURL: 'http://localhost:3000' }),
+  // app crashes in production when process.env.ENVIRONMENT !== 'production -> WHY?
+  ...(process.env.ENVIRONMENT === 'development' && { serverURL: 'http://localhost:3000' }),
   admin: {
     user: Users.slug,
     meta: {
