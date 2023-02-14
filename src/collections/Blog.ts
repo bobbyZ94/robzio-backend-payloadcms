@@ -14,7 +14,7 @@ const Blog: CollectionConfig = {
   labels: { singular: 'Blog', plural: 'Blogs' },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'date'],
+    defaultColumns: ['title', 'date', '_status'],
   },
   fields: [
     {
@@ -31,7 +31,7 @@ const Blog: CollectionConfig = {
         hidden: true,
       },
       hooks: {
-        beforeValidate: [(args) => slugify(args.siblingData.title, { lower: true, remove: /[*+~.()'"!:@]/g })],
+        beforeValidate: [(args) => slugify(args.siblingData.title ? args.siblingData.title : '', { lower: true, remove: /[*+~.()'"!:@]/g })],
       },
     },
     {

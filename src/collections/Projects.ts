@@ -13,7 +13,7 @@ const Projects: CollectionConfig = {
   labels: { singular: 'Project', plural: 'Projects' },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'date'],
+    defaultColumns: ['title', 'date', '_status'],
   },
   fields: [
     {
