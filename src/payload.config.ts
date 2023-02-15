@@ -54,7 +54,7 @@ export default buildConfig({
   telemetry: false,
   upload: {
     limits: {
-      fileSize: 100000000, // 10MB, written in bytes
+      fileSize: 10000000, // 10MB, written in bytes
     },
   },
   rateLimit: {
