@@ -2,9 +2,6 @@ import { GlobalConfig } from 'payload/types'
 
 const About: GlobalConfig = {
   slug: 'about',
-  access: {
-    read: () => true,
-  },
   fields: [
     {
       name: 'text',

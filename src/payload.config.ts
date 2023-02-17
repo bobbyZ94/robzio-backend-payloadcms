@@ -1,6 +1,5 @@
 import { buildConfig } from 'payload/config';
 import path from 'path';
-// import Examples from './collections/Examples';
 import Users from './collections/Users';
 import Settings from './collections/Settings';
 import Legal from './collections/Legal';
@@ -9,6 +8,8 @@ import Contact from './collections/Contact';
 import Blog from './collections/Blog';
 import Projects from './collections/Projects';
 import Media from './collections/Media';
+import Logo from './components/Logo';
+import Icon from './components/Icon';
 
 export default buildConfig({
   // app crashes in production when process.env.ENVIRONMENT !== 'production -> WHY?
@@ -19,16 +20,16 @@ export default buildConfig({
       // browsertab name suffix
       titleSuffix: ' - Robzio',
       // favicon for browsertab
-      // favicon: '/assets/favicon.svg',
+      favicon: '/assets/favicon.png',
       // image that appears in previews of shared links through admin panel/social media
-      // ogImage: '/assets/logo.svg',
+      ogImage: '/assets/logo.png',
     },
     components: {
       graphics: {
         // image component to be displayed as the logo on the Sign Up / Login view.
-        // Logo,
+        Logo,
         // image component displayed above the Nav in the admin panel, often a condensed version of a full logo.
-        // Icon,
+        Icon,
       },
     },
   },

@@ -3,9 +3,6 @@ import slugify from 'slugify'
 
 const Blog: CollectionConfig = {
   slug: 'blog',
-  access: {
-    read: () => true,
-  },
   versions: {
     drafts: {
       autosave: true,

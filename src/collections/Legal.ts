@@ -2,9 +2,6 @@ import { GlobalConfig } from 'payload/types'
 
 const Legal: GlobalConfig = {
   slug: 'legal',
-  access: {
-    read: () => true,
-  },
   fields: [
     {
       name: 'title',

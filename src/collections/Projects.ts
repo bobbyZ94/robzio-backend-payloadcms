@@ -2,9 +2,6 @@ import { CollectionConfig } from 'payload/types'
 
 const Projects: CollectionConfig = {
   slug: 'projects',
-  access: {
-    read: () => true,
-  },
   versions: {
     drafts: {
       autosave: true,
