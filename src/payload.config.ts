@@ -63,6 +63,7 @@ export default buildConfig({
     max: 500,
     trustProxy: true,
   },
+  maxDepth: 20,
   csrf: [
     'https://robzio.com', 'https://www.robzio.com', 'https://admin.robzio.com', 'https://www.admin.robzio.com',
   ],
