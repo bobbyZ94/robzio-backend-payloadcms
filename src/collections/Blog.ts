@@ -86,9 +86,9 @@ const Blog: CollectionConfig = {
             {
               name: 'code',
               type: 'code',
-              label: 'Svelte',
+              label: 'Svelte (Not supported by payloadcms yet, so its javascript type under the hood)',
               admin: {
-                language: 'svelte'
+                language: 'javascript'
               }
             },
           ]
