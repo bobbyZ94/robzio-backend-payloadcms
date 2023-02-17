@@ -76,6 +76,24 @@ const Blog: CollectionConfig = {
           ]
         },
         {
+          slug: 'code svelte',
+          fields: [
+            {
+              name: 'filename',
+              type: 'text',
+              label: 'Filename. E.g. : /+page.svelte'
+            },
+            {
+              name: 'code',
+              type: 'code',
+              label: 'Svelte',
+              admin: {
+                language: 'svelte'
+              }
+            },
+          ]
+        },
+        {
           slug: 'code javascript',
           fields: [
             {
