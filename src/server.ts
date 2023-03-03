@@ -4,14 +4,14 @@ import path from 'path';
 
 require('dotenv').config();
 const app = express();
-app.use('/assets', express.static(path.resolve(__dirname, '../assets')));
 
-// Stop indexing of admin panel to googlebots
-app.use(express.static(__dirname, {
-  setHeaders(res, path, stat) {
-      res.setHeader("X-Robots-Tag", "noindex")
-  },
-}))
+// a middleware with no mount path; gets executed for every request to the app; Stop indexing of admin panel to googlebots
+app.use(function(req, res, next) {
+  res.setHeader("X-Robots-Tag", "noindex")
+  next();
+});
+
+app.use('/assets', express.static(path.resolve(__dirname, '../assets')));
 
 // Redirect root to Admin panel
 app.get('/', (_, res) => {
