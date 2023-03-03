@@ -6,6 +6,13 @@ require('dotenv').config();
 const app = express();
 app.use('/assets', express.static(path.resolve(__dirname, '../assets')));
 
+// Stop indexing of admin panel to googlebots
+app.use(express.static(__dirname, {
+  setHeaders(res, path, stat) {
+      res.setHeader("X-Robots-Tag", "noindex")
+  },
+}))
+
 // Redirect root to Admin panel
 app.get('/', (_, res) => {
   res.redirect('/admin');
